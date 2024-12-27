@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Converter.Views.MainPage"
+             Title="Конвертер валют">
+    <Grid>
+        <Image Source="C:\Users\Boris\source\repos\Converter\Resources\Images\background.jpg" Aspect="AspectFill" Opacity="0.3"/>
+        <StackLayout Padding="20">
+        <Label Text="Выберите дату:" />
+        <DatePicker 
+                MinimumDate="01/01/2020"
+                Date="{Binding SelectedDate}" />
+
+
+
+        <Label Text="Из какой валюты:" />
+        <Picker 
+                ItemsSource="{Binding CurrencyRates}" 
+                SelectedItem="{Binding FromCurrency, Mode=TwoWay}" 
+                ItemDisplayBinding="{Binding Name}" />
+        
+        <Label Text="Введите сумму:" />
+        <Entry Keyboard="Numeric" Text="{Binding Amount1, Mode=TwoWay}"/>
+
+        <Label Text="В какую валюту:" />
+        <Picker 
+                ItemsSource="{Binding CurrencyRates}" 
+                SelectedItem="{Binding ToCurrency, Mode=TwoWay}" 
+                ItemDisplayBinding="{Binding Name}" />
+
+
+                <Label Text="Введите сумму:" />
+        <Entry Keyboard="Numeric" Text="{Binding Amount2, Mode=TwoWay}"/>
+
+        <Label Text="{Binding Result}" />
+    </StackLayout>
+    </Grid>
+</ContentPage>
+    
